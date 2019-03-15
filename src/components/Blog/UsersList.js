@@ -1,7 +1,6 @@
 
 import React from 'react';
-// import PostCard from './components/Blog/PostCard';
-import PostCard from './PostCard'
+import UserCard from './UserCard';
 import axios from 'axios';
 
 
@@ -12,7 +11,7 @@ export default class PostsList extends React.Component {
     componentDidMount() {
         // Call api
         // set data in state
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('https://jsonplaceholder.typicode.com/Users')
           .then((response) => {
             // handle success
             const data = response.data;
@@ -25,7 +24,7 @@ export default class PostsList extends React.Component {
       }
     
       render() {
-        return this.state.data.map(p => (<PostCard key={p.id} title={p.title} id={p.id} />));
+        return this.state.data.map(p => (<UserCard key={p.id} username={p.username} id={p.id} />));
       }
 }
 
